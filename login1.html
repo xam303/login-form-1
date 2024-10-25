@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Enhanced Login Screen</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+<style>
+  /* Body Styling */
+  body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #171717 100%, #171717 100%);
+    font-family: 'Poppins', sans-serif;
+  }
+
+  /* Login Form Styling */
+  .login-container {
+    background: white;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+
+  /* Top Icon Placeholder */
+  .icon-placeholder {
+    background-color: #ddd;
+    border-radius: 100%;
+    width: 60px;
+    height: 60px;
+    margin: 0 auto 10px;
+    background-image: url('icon.png'); /* Icon placeholder */
+    background-size: cover;
+    background-position: center;
+  }
+
+  h1 {
+    font-size: 2.1em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 0.2em;
+    margin-bottom: 0.2px;
+  }
+
+  p {
+    color: #555;
+    font-size: 1em;
+    margin-bottom: 1.2em;
+    margin-top: 1px;
+  }
+
+  .input-field {
+    position: relative;
+    margin-bottom: 1.5em;
+  }
+
+  /* Input Fields */
+  .input-field input {
+    width: calc(95% - 30px);
+    padding: 10px;
+    padding-right: 30px;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    outline: none;
+    font-size: 1em;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+  }
+
+  .input-field input:focus {
+    border-bottom: 2px solid #35016a;
+    transform: translateY(-3px);
+  }
+
+  /* Input Icons Positioned Right */
+  .input-field .input-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    color: black;
+    font-size: 1.2em;
+  }
+
+  /* Error Message */
+  .error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: -1em;
+    margin-bottom: 1em;
+    display: none;
+  }
+
+  /* Login Button Styling */
+  .login-button {
+    padding: 12px 20px; /* Separate padding for Login button */
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    background: #35016a;
+    color: white;
+  }
+
+  .login-button:hover {
+    background: #4c0486;
+  }
+
+  /* Google Button Styling */
+  .google-button {
+    padding: 9px 30px; /* Separate padding for Google button */
+    width: 100%;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 15px;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+    background: #d3d3d3;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .google-button img {
+    margin-right: 10px;
+    height: 30px; /* Icon size */
+    width: 30px; /* Icon size */
+    vertical-align: middle;
+  }
+
+  /* Sign Up Text */
+  .signup-text {
+    margin-top: 1em;
+    font-size: 0.9em;
+  }
+
+  .signup-text a {
+    font-weight: bold;
+    color: #35016a;
+    text-decoration: none;
+  }
+
+  .signup-text a:hover {
+    text-decoration: underline;
+  }
+</style>
+</head>
+<body>
+
+<div class="login-container">
+  <div class="icon-placeholder"></div>
+  
+  <h1>Welcome back</h1>
+  <p>Please enter your details</p>
+  
+  <form id="loginForm">
+    <div class="input-field">
+      <input type="text" id="email" placeholder="Email" required>
+      <i class="uil uil-at input-icon"></i>
+    </div>
+    <div class="input-field">
+      <input type="password" id="password" placeholder="Password" required>
+      <i class="uil uil-padlock input-icon"></i>
+    </div>
+    <p class="error-message" id="error-message">Please fill in all fields</p>
+    <button type="button" class="login-button" onclick="validateForm()">Login</button>
+    <button type="button" class="google-button">
+      <img src="google-icon.png" alt="Google Logo">
+      Login with Google
+    </button>
+  </form>
+  
+  <p class="signup-text">Don't have an account? <a href="#">Sign Up</a></p>
+</div>
+
+<script>
+  function validateForm() {
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
+    const errorMessage = document.getElementById("error-message");
+
+    if (email === "" || password === "") {
+      errorMessage.style.display = "block"; 
+    } else {
+      errorMessage.style.display = "none"; 
+      alert("Login successful!");
+    }
+  }
+</script>
+
+</body>
+</html>
